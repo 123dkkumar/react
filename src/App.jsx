@@ -1,11 +1,12 @@
-import "./App.css";
+import React from "react";
+import Login from "./components/Auth/Login";
 
-function App() {
+const App = () => {
   return (
     <>
-      <h1>Employee Management System Its a Bifg Project</h1>
+      <Login />
     </>
   );
-}
+};
 
 export default App;
