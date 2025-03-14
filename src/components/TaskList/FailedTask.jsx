@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "../../context/AuthProvider";
 
 const FailedTask = () => {
+  const [userData, setUserData] = useContext(AuthContext);
   return (
     <div className="h-full w-[300px] bg-yellow-400 rounded-xl p-5 flex-shrink-0">
       <div className="flex items-center justify-between">

@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { AuthContext } from "../../context/AuthProvider";
+import { useContext } from "react";
 
 const CreateTask = () => {
+  const [userData, setUserData] = useContext(AuthContext);
+
   const [taskTitle, settaskTitle] = useState("");
   const [taskDescription, settaskDescription] = useState("");
   const [taskDate, settaskDate] = useState("");
@@ -26,13 +30,16 @@ const CreateTask = () => {
       failed: false,
       complete: false,
     });
-    const data = JSON.parse(localStorage.getItem("employees"));
+    const data = userData;
+
     data.forEach((e) => {
       if (assignTo == e.firstName) {
         e.tasks.push(newTask);
-        console.log(e);
+        e.taskNumbers.newTask = e.taskNumbers.newTask + 1;
       }
     });
+    setUserData(data);
+    //console.log(data);
     settaskTitle("");
     setcategory("");
     setassignTo("");
